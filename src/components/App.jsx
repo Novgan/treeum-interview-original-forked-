@@ -8,10 +8,10 @@ import Task3 from "./Task3";
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={<Home />} />
-      <Route exact path="/task1" component={<Task1 />} />
-      <Route exact path="/task2" component={<Task2 />} />
-      <Route exact path="/task3" component={<Task3 />} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/task1" component={Task1} />
+      <Route exact path="/task2" component={Task2} />
+      <Route exact path="/task3" component={Task3} />
     </Switch>
   );
 }

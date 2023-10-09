@@ -1,8 +1,10 @@
 import { join } from "path";
 import express from "express";
 import React from "react";
-import { renderToString } from "react-dom/server";
-import Root from "./components/App";
+import ReactDOMServer from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
+
+import App from "./components/App";
 import template from "./template";
 
 const server = express();
@@ -10,22 +12,17 @@ const server = express();
 server.use("/assets", express.static(join(__dirname, "assets")));
 
 server.get("/", async (req, res) => {
-  const store = {};
-  const [locationPathname, search = ""] = req.originalUrl.split("?");
-  const locationSearch = search ? `?${search}` : "";
-  const location = {
-    pathname: `${locationPathname}`.replace("/", ""),
-    search: locationSearch,
-  };
-  const appString = renderToString(
-    <Root env="server" location={location} store={store} />,
+  const appString = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url}>
+      <App />
+    </StaticRouter>,
   );
 
   res.send(
     template({
       body: appString,
       title: "Hello World from the server",
-      initialState: JSON.stringify(initialState),
+      initialState: JSON.stringify({}),
     }),
   );
 });

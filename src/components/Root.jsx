@@ -1,11 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { Provider as ReduxProvider } from "react-redux";
 import { BrowserRouter, StaticRouter } from "react-router-dom";
 
 import App from "./App";
 
 function Root({ env, location, store }) {
-  console.log("QQQ", env);
   return (
     <ReduxProvider store={store}>
       {env === "server" ? (
@@ -21,4 +20,4 @@ function Root({ env, location, store }) {
   );
 }
 
-export default Root;
+export default memo(Root);
