@@ -10,13 +10,13 @@ const Container = styled.div`
 
 function Menu({ items }) {
   return (
-    <Container>
-      {items.map(({ id, to, label }) => {
-        <Link key={id} to={to}>
-          {label} {`qqq`}
-        </Link>;
-      })}
-    </Container>
+      <Container>
+        {items.map(({ id, to, label }) => (
+          <Link key={id} to={to}>
+            {label}
+          </Link>
+        ))}
+      </Container>
   );
 }
 

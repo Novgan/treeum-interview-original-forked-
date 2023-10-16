@@ -15,16 +15,6 @@ const menu = [
     to: "/task1",
     label: "Завдання 1",
   },
-  {
-    id: "task2",
-    to: "/task2",
-    label: "Завдання 2",
-  },
-  {
-    id: "task3",
-    to: "/task3",
-    label: "Завдання 3",
-  },
 ];
 
 const Container = styled.div`
@@ -47,7 +37,7 @@ function Layout({ children }) {
 Layout.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      to: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       to: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
     }).isRequired,

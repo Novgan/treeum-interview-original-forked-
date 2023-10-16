@@ -11,7 +11,7 @@ const server = express();
 
 server.use("/assets", express.static(join(__dirname, "assets")));
 
-server.get("/", async (req, res) => {
+server.get("*", async (req, res) => {
   const appString = ReactDOMServer.renderToString(
     <StaticRouter location={req.url}>
       <App />
